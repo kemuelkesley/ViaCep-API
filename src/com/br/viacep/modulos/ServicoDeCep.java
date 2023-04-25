@@ -25,13 +25,14 @@ public class ServicoDeCep {
             BufferedReader resposta = new BufferedReader(new InputStreamReader((conexao.getInputStream())));
             String enderecoString = Util.converteJsonEmString(resposta);
             
-            System.out.println(enderecoString);
+            //System.out.println(enderecoString);
             
             Gson gson = new Gson();
 
             Endereco endereco = gson.fromJson(enderecoString, Endereco.class);
             
             return endereco;
+            
         } catch (Exception e) {
             throw new Exception("ERRO: " + e);
         }
